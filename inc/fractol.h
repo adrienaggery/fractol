@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 13:27:58 by aaggery           #+#    #+#             */
-/*   Updated: 2014/12/30 14:18:04 by aaggery          ###   ########.fr       */
+/*   Updated: 2014/12/30 20:07:14 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct		s_fractol
 ** Prototypes from "events.c"
 */
 
-int					mouse_event();
-int					keyboard_event();
+int					mouse_event(int button, int x, int y, t_fractol *fl);
+int					keyboard_event(int keycode, t_fractol *fl);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 13:27:58 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/02 23:41:56 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/03 20:36:09 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@
 # include <unistd.h>
 # include "mlx.h"
 # include "libft.h"
+# include <stdio.h> // a virer
 
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
+
+# define KEYCODE_EXIT 53
 
 typedef struct		s_point2d
 {
@@ -71,6 +74,6 @@ int					keyboard_event(int keycode, t_fractol *fl);
 */
 
 void				ft_put_pixel_to_img(t_buffer *buffer, int x, int y, int color);
-int					ft_HSVtoHex(int h, float s, float v);
+int					ft_HSLtoHex(int h, float s, float l);
 
 #endif

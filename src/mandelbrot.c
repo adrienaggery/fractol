@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/31 17:42:47 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/02 23:38:59 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/03 22:33:38 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ static int		ft_iterate(int max_it, t_imaginary_number p)
 	i = 0;
 	new.real = 0;
 	new.imaginary = 0;
-	while (i++ < max_it)
+	while (i < max_it)
 	{
+		i++;
 		old.real = new.real;
 		old.imaginary = new.imaginary;
 		new.real = old.real * old.real - old.imaginary * old.imaginary + p.real;
@@ -49,7 +50,8 @@ static void		ft_buff_image(t_fractol *fl)
 			p.real = 1.5 * (x - WIN_WIDTH / 2) / (0.5 * fl->zoom * WIN_WIDTH) + fl->offset.x;
 			p.imaginary = (y - WIN_HEIGHT / 2) / (0.5 * fl->zoom * WIN_HEIGHT) + fl->offset.y;
 			i = ft_iterate(fl->max_it, p);
-			ft_put_pixel_to_img(&fl->buffer, x, y, ft_HSVtoHex(i % 256, 1, (i < fl->max_it)));
+			printf("i = %d (%d, %d): %#x\n", i, x, y ,ft_HSLtoHex(i, 1, 0.5));
+			ft_put_pixel_to_img(&fl->buffer, x, y, ft_HSLtoHex(i, 1, 0.5));
 			x++;
 		}
 		y++;
@@ -60,5 +62,7 @@ int				draw_mandelbrot(t_fractol *fl)
 {
 	ft_buff_image(fl);
 	mlx_put_image_to_window(fl->mlx, fl->win, fl->buffer.img, 0, 0);
+	printf("Image Buffed\n");
+
 	return (0);
 }

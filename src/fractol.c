@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 13:35:20 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/02 23:44:13 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/03 19:11:27 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void		ft_init(t_fractol *fl, char **argv)
 {
 	fl->name = argv[1];
+	fl->max_it = 128;
 	fl->zoom = 1;
 	fl->offset.x = 0;
 	fl->offset.y = 0;
@@ -63,8 +64,8 @@ int				main(int argc, char **argv)
 
 	ft_check_args(argc, argv);
 	ft_init(&fl, argv);
-	//mlx_key_hook(fl.win, keyboard_event, &fl);
-	//mlx_mouse_hook(fl.win, mouse_event, &fl);
+	mlx_key_hook(fl.win, keyboard_event, &fl);
+	mlx_mouse_hook(fl.win, mouse_event, &fl);
 	mlx_loop(fl.mlx);
 	return (0);
 }

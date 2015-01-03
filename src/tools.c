@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaggery <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/27 13:51:17 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/02 23:41:31 by aaggery          ###   ########.fr       */
+/*   Created: 2015/01/03 20:33:48 by aaggery           #+#    #+#             */
+/*   Updated: 2015/01/03 22:34:33 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,31 +25,28 @@ void	ft_put_pixel_to_img(t_buffer *buffer, int x, int y, int color)
 		ft_memcpy(buffer->data + position, &color, octet);
 }
 
-int		ft_HSVtoHex(int h, float s, float v)
+int		ft_HSLtoHex(int h, float s, float l)
 {
-	int		t1;
-	float	f;
-	float	l;
-	float 	m;
-	float	n;
+	float		C;
+	float		X;
+	float		m;
 
-	t1 = (h / 60) % 6;
-	f = h / 60 - t1;
-	l = v * (1 - s);
-	m = v * (1 - s * f);
-	n = v * (1 - (1 - f) * s);
-	if (t1 == 0)
-		return ((v * 255) * (n * 255) * (l * 255));
-	else if (t1 == 1)
-		return ((m * 255) * (v * 255) * (l * 255));
-	else if (t1 == 2)
-		return ((l * 255) * (v * 255) * (n * 255));
-	else if (t1 == 3)
-		return ((l * 255) * (m * 255) * (v * 255));
-	else if (t1 == 4)
-		return ((n * 255) * (l * 255) * (v * 255));
-	else if (t1 == 5)
-		return ((v * 255) * (l * 255) * (m * 255));
+	C = (1 - abs(2 * l - 1)) * s;
+	X = C * (1 - abs((h / 60) % 2 - 1));
+	m = l - C / 2;
+	//printf("C = %f, X = %f, m = %f\n", C, X, m);
+	if (h >= 0 && h < 60)
+		return (((C + m) * 255 + 1) * ((X + m) * 255 + 1) * ((0 + m) * 255 + 1));
+	else if (h >= 60 && h < 120)
+		return (((X + m) * 255 + 1) * ((C + m) * 255 + 1) * ((0 + m) * 255 + 1));
+	else if (h >= 120 && h < 180)
+		return (((0 + m) * 255 + 1) * ((C + m) * 255 + 1) * ((X + m) * 255 + 1));
+	else if (h >= 180 && h < 240)
+		return ((0 + m) * (X + m) * (C + m));
+	else if (h >= 240 && h < 300)
+		return ((X + m) * (0 + m) * (C + m));
+	else if (h >= 300 && h < 360)
+		return ((C + m) * (0 + m) * (X + m));
 	else
 		return (0);
 }

@@ -6,7 +6,7 @@
 #    By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/30 13:28:10 by aaggery           #+#    #+#              #
-#    Updated: 2015/01/02 23:40:15 by aaggery          ###   ########.fr        #
+#    Updated: 2015/01/03 19:18:28 by aaggery          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = bin/fractol
 
 SOURCES = src/fractol.c \
 		  src/mandelbrot.c \
+		  src/events.c \
 		  src/tools.c \
 
 INCLUDES = inc/

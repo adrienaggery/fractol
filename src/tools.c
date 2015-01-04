@@ -6,11 +6,19 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 20:33:48 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/03 22:34:33 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/04 18:40:55 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	ft_setColorRGB(t_color *c, char r, char g, char b)
+{
+	c->rgb[0] = b;
+	c->rgb[1] = g;
+	c->rgb[2] = r;
+	c->rgb[3] = 0;
+}
 
 void	ft_put_pixel_to_img(t_buffer *buffer, int x, int y, int color)
 {
@@ -27,6 +35,7 @@ void	ft_put_pixel_to_img(t_buffer *buffer, int x, int y, int color)
 
 int		ft_HSLtoHex(int h, float s, float l)
 {
+	t_color		color;
 	float		C;
 	float		X;
 	float		m;
@@ -36,17 +45,18 @@ int		ft_HSLtoHex(int h, float s, float l)
 	m = l - C / 2;
 	//printf("C = %f, X = %f, m = %f\n", C, X, m);
 	if (h >= 0 && h < 60)
-		return (((C + m) * 255 + 1) * ((X + m) * 255 + 1) * ((0 + m) * 255 + 1));
+		ft_setColorRGB(&color, (C + m) * 255, (X + m) * 255, (0 + m) * 255);
 	else if (h >= 60 && h < 120)
-		return (((X + m) * 255 + 1) * ((C + m) * 255 + 1) * ((0 + m) * 255 + 1));
+		ft_setColorRGB(&color, (X + m) * 255, (C + m) * 255, (0 + m) * 255);
 	else if (h >= 120 && h < 180)
-		return (((0 + m) * 255 + 1) * ((C + m) * 255 + 1) * ((X + m) * 255 + 1));
+		ft_setColorRGB(&color, (0 + m) * 255, (C + m) * 255, (X + m) * 255);
 	else if (h >= 180 && h < 240)
-		return ((0 + m) * (X + m) * (C + m));
+		ft_setColorRGB(&color, (0 + m) * 255, (X + m) * 255, (C + m) * 255);
 	else if (h >= 240 && h < 300)
-		return ((X + m) * (0 + m) * (C + m));
+		ft_setColorRGB(&color, (X + m) * 255, (0 + m) * 255, (C + m) * 255);
 	else if (h >= 300 && h < 360)
-		return ((C + m) * (0 + m) * (X + m));
+		ft_setColorRGB(&color, (C + m) * 255, (0 + m) * 255, (X + m) * 255);
 	else
-		return (0);
+		ft_setColorRGB(&color, 255, 255, 255);
+	return (color.color);
 }

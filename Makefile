@@ -6,7 +6,7 @@
 #    By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/30 13:28:10 by aaggery           #+#    #+#              #
-#    Updated: 2015/01/03 19:18:28 by aaggery          ###   ########.fr        #
+#    Updated: 2015/01/04 19:00:03 by aaggery          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ $(MLX): ./mlx
 	cp ./mlx/libmlx.a ./lib
 	cp ./mlx/mlx.h ./inc
 
-obj/%.o: src/%.c
+obj/%.o: src/%.c $(INCLUDES)fractol.h
 	gcc $(FLAGS) -I $(INCLUDES) -c $< -o $@
 
 clean:

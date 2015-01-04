@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 13:27:58 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/04 19:00:34 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/04 19:29:04 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "libft.h"
 # include <stdio.h> // a virer
 
-# define WIN_WIDTH 1400
+# define WIN_WIDTH 2000
 # define WIN_HEIGHT 900
 
 # define KEYCODE_EXIT 53

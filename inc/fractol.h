@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 13:27:58 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/03 20:36:09 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/04 19:00:34 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,16 @@
 # include "libft.h"
 # include <stdio.h> // a virer
 
-# define WIN_WIDTH 1920
-# define WIN_HEIGHT 1080
+# define WIN_WIDTH 1400
+# define WIN_HEIGHT 900
 
 # define KEYCODE_EXIT 53
+
+typedef union		u_color
+{
+	int				color;
+	char			rgb[4];
+}					t_color;
 
 typedef struct		s_point2d
 {

@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 13:27:58 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/05 19:57:08 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/05 21:39:05 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@
 # define WIN_HEIGHT 1080
 
 # define KEYCODE_EXIT 53
+# define KEYCODE_ZOOM 1
+# define KEYCODE_DEZOOM 2
+# define KEYCODE_MOVEUP 126
+# define KEYCODE_MOVEDOWN 125
+# define KEYCODE_MOVELEFT 123
+# define KEYCODE_MOVERIGHT 124
+
+# define ZOOMSTEP 256
 
 typedef union		u_color
 {

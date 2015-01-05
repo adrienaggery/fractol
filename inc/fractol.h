@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 13:27:58 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/04 19:29:04 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/05 18:41:01 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include "libft.h"
 # include <stdio.h> // a virer
 
-# define WIN_WIDTH 2000
-# define WIN_HEIGHT 900
+# define WIN_WIDTH 1920
+# define WIN_HEIGHT 1080
 
 # define KEYCODE_EXIT 53
 
@@ -36,11 +36,11 @@ typedef struct		s_point2d
 	int				y;
 }					t_point2d;
 
-typedef struct		s_imaginary_number
+typedef struct		s_float2d
 {
-	float			real;
-	float			imaginary;
-}					t_imaginary_number;
+	float			x;
+	float			y;
+}					t_float2d;
 
 typedef struct		s_buffer
 {

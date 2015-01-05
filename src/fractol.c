@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 13:35:20 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/05 19:58:50 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/05 21:39:36 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 static void		ft_init(t_fractol *fl, char **argv)
 {
 	fl->name = argv[1];
-	fl->max_it = 1024;
+	fl->max_it = 64;
 	fl->zoom = 512;
-	fl->offset.x = WIN_WIDTH / 2;
-	fl->offset.y = WIN_HEIGHT / 2;
+	fl->offset.x = 0;
+	fl->offset.y = 0;
 	fl->mlx = mlx_init();
 	if (fl->mlx == NULL)
 	{
@@ -26,11 +26,11 @@ static void		ft_init(t_fractol *fl, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	fl->win = mlx_new_window(fl->mlx, WIN_WIDTH, WIN_HEIGHT, "Fract'ol");
-	if (ft_strequ("mandelbrot", argv[1]))
+	if (ft_strequ("mandelbrot", fl->name))
 		mlx_expose_hook(fl->win, draw_mandelbrot, fl);
-	else if (ft_strequ("julia", argv[1]))
+	else if (ft_strequ("julia", fl->name))
 		mlx_expose_hook(fl->win, draw_mandelbrot, fl);
-	else if (ft_strequ("X", argv[1]))
+	else if (ft_strequ("X", fl->name))
 		mlx_expose_hook(fl->win, draw_mandelbrot, fl);
 	fl->buffer.img = mlx_new_image(fl->mlx, WIN_WIDTH, WIN_HEIGHT);
 	fl->buffer.data = mlx_get_data_addr(fl->buffer.img, &fl->buffer.bpp,

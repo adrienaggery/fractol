@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/31 17:42:47 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/05 20:03:07 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/05 21:45:06 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ static void		ft_buff_image(t_fractol *fl)
 		x = 0;
 		while (x < WIN_WIDTH)
 		{
-			c.x = (x - fl->offset.x) * (1 / fl->zoom);
-			c.y = (y - fl->offset.y) * (1 / fl->zoom);
+			c.x = (x - WIN_WIDTH / 2) * (1 / fl->zoom) + fl->offset.x;
+			c.y = (y - WIN_HEIGHT / 2) * (1 / fl->zoom) + fl->offset.y;
 			i = ft_iterate(fl->max_it, c);
 			ft_put_pixel_to_img(&fl->buffer, x, y, ft_HSLtoHex(i % 360, 1, 0.5 * (i < fl->max_it)));
 			x++;

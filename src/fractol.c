@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 13:35:20 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/05 18:51:17 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/05 19:58:50 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void		ft_init(t_fractol *fl, char **argv)
 {
 	fl->name = argv[1];
-	fl->max_it = 360;
+	fl->max_it = 1024;
 	fl->zoom = 512;
 	fl->offset.x = WIN_WIDTH / 2;
 	fl->offset.y = WIN_HEIGHT / 2;

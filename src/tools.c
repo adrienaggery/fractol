@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 20:33:48 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/04 18:40:55 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/05 20:06:34 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int		ft_HSLtoHex(int h, float s, float l)
 	float		X;
 	float		m;
 
-	C = (1 - abs(2 * l - 1)) * s;
-	X = C * (1 - abs((h / 60) % 2 - 1));
-	m = l - C / 2;
+	C = (1.0 - fabs(2 * l - 1.0)) * s;
+	X = C * (1.0 - fabs(fmod((h / 60.0), 2) - 1.0));
+	m = l - 0.5 * C;
 	//printf("C = %f, X = %f, m = %f\n", C, X, m);
 	if (h >= 0 && h < 60)
 		ft_setColorRGB(&color, (C + m) * 255, (X + m) * 255, (0 + m) * 255);

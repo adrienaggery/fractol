@@ -6,13 +6,14 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 13:27:58 by aaggery           #+#    #+#             */
-/*   Updated: 2015/01/05 18:41:01 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/05 19:57:08 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
+# include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include "mlx.h"
